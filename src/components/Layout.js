@@ -1,5 +1,4 @@
-import { AppBar } from '@mui/material';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { UserMenu } from './UserMenu/UserMenu';
 import { AuthNav } from './AuthNav/AuthNav';
