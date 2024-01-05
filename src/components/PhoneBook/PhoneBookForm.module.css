@@ -74,7 +74,18 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: box-shadow 0.3s;
-    width: 600px;
+    max-width: 600px;
+    /* Значение по умолчанию */
+
+    @media (max-width: 768px) {
+        max-width: 400px;
+        /* Изменение на меньших экранах */
+    }
+
+    @media (max-width: 480px) {
+        max-width: 300px;
+        /* Изменение на еще меньших экранах */
+    }
 }
 
 .listItem:hover {
