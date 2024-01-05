@@ -1,23 +1,42 @@
-import styled from 'styled-components';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import styles from './AuthNav.module.css';
 
-const StyledLink = styled(NavLink)`
-  color: #212121;
+const AuthNav = () => {
+  const [activeTab, setActiveTab] = useState('');
 
-  &.active {
-    color: orangered;
-  }
-`;
+  const switchToRegister = () => {
+    setActiveTab('register');
+  };
 
-export const AuthNav = () => {
+  const switchToLogin = () => {
+    setActiveTab('login');
+  };
+
   return (
-    <ul>
-      <li>
-        <StyledLink to="/register">Register</StyledLink>
-      </li>
-      <li>
-        <StyledLink to="/login">Login</StyledLink>
-      </li>
-    </ul>
+    <div className={`${styles.container} ${styles[activeTab]}`}>
+      <div className={styles.tabs}>
+        <NavLink
+          to="/register"
+          className={`${styles.tab} ${
+            activeTab === 'register' ? styles.active : ''
+          }`}
+          onClick={switchToRegister}
+        >
+          Register
+        </NavLink>
+        <NavLink
+          to="/login"
+          className={`${styles.tab} ${
+            activeTab === 'login' ? styles.active : ''
+          }`}
+          onClick={switchToLogin}
+        >
+          Login
+        </NavLink>
+      </div>
+    </div>
   );
 };
+
+export default AuthNav;

@@ -1,3 +1,4 @@
+// PhoneBookList.js
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -5,6 +6,8 @@ import {
   deleteContacts,
 } from '../../redux/contactShelf/contactsOperation';
 import { getVisibleContacts } from '../../redux/selectors/selectors';
+import styles from './PhoneBookForm.module.css';
+import DeleteIcon from './icons/DeleteIcon';
 
 const PhoneBookList = () => {
   const contacts = useSelector(getVisibleContacts);
@@ -29,17 +32,24 @@ const PhoneBookList = () => {
   };
 
   return (
-    <div>
+    <div className={styles.listContainer}>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
 
-      <ul>
+      <ul className={styles.list}>
         {contacts.map(item => (
-          <li key={item.id}>
+          <li key={item.id} className={styles.listItem}>
             <p>
               {item.name}: {item.number}
             </p>
-            <button onClick={() => handleDeleteContact(item.id)}>Delete</button>
+
+            <button
+              className={styles.deleteButton}
+              onClick={() => handleDeleteContact(item.id)}
+            >
+              <DeleteIcon className={styles.icon} />
+              <span className={styles.deleteText}>Delete</span>
+            </button>
           </li>
         ))}
       </ul>

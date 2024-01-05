@@ -8,6 +8,7 @@ import ContactsPage from 'pages/ContactsPage';
 import { useDispatch } from 'react-redux';
 import { useAuth } from '../hooks/useAuth';
 import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,32 +19,39 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    // Заменил строку на загрузочный индикатор
     <div>Loading user data...</div>
   ) : (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route path="/login" element={<LoginPage />} />
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
+            }
+          />
 
-        <Route
-          path="/login"
-          element={
-            <RestrictedRoute component={LoginPage} redirectTo="/contacts" />
-          }
-        />
-
-        <Route path="/register" element={<RegisterPage />} />
-
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute component={RegisterPage} redirectTo="/contacts" />
-          }
-        />
-
-        <Route path="/contacts" element={<ContactsPage />} />
-      </Route>
-    </Routes>
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+            }
+          />
+        </Route>
+      </Routes>
+    </div>
   );
 }
 

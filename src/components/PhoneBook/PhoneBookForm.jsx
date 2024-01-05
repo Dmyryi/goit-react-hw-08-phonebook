@@ -1,3 +1,4 @@
+// PhoneBookForm.js
 import React, { useState } from 'react';
 import styles from './PhoneBookForm.module.css';
 
@@ -8,7 +9,6 @@ import { nanoid } from 'nanoid';
 
 export default function PhoneBookForm() {
   const dispatch = useDispatch();
-
   const contacts = useSelector(getVisibleContacts);
 
   const [name, setName] = useState('');
@@ -35,7 +35,6 @@ export default function PhoneBookForm() {
     }
 
     try {
-      // Assuming addContact is an asynchronous function that fetches data from the backend
       await dispatch(addContact({ id: nanoid(), name, number }));
       reset();
     } catch (error) {
@@ -49,28 +48,37 @@ export default function PhoneBookForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label class={styles.label}>
+    <form className={styles.formPhone} onSubmit={handleSubmit}>
+      <label className={styles.label}>
         Name
         <input
+          className={styles.input}
           type="text"
           name="name"
           value={name}
           onChange={handleChangeName}
           required
+          placeholder="Example: Diana"
         />
       </label>
-      <label class={styles.label}>
+      <label className={styles.label}>
         Number
         <input
-          type="phone"
+          className={styles.input}
+          type="number"
+          placeholder="Example: 0997658998"
+          pattern="[\+]\d{2}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}"
+          minLength="13"
+          maxLength="13"
           name="number"
           value={number}
           onChange={handleChangeNumber}
           required
         />
       </label>
-      <button type="submit">Add Contact</button>
+      <button className={styles.button} type="submit">
+        Add Contact
+      </button>
     </form>
   );
 }

@@ -3,6 +3,7 @@ import { UserEmail } from '../../redux/auth/selector';
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../redux/auth/operations';
 import styled from 'styled-components';
+import styles from './UserMenu.module.css';
 const Container = styled.div`
   display: flex;
   width: 300px;
@@ -32,6 +33,7 @@ const LogoutButton = styled.button`
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-left: 30px;
 `;
 
 export const UserMenu = () => {

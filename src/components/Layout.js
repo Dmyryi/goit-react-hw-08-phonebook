@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { UserMenu } from './UserMenu/UserMenu';
-import { AuthNav } from './AuthNav/AuthNav';
+import AuthNav from './AuthNav/AuthNav';
 import { Navigation } from './Navigation/Navigation';
-
+import './Layout.module.css';
+import { Suspense } from 'react';
 export const Layout = () => {
   const { isLoggedIn } = useAuth();
   return (
@@ -12,9 +13,9 @@ export const Layout = () => {
         <Navigation />
         {isLoggedIn ? <UserMenu /> : <AuthNav />}
       </header>
-      <main>
+      <Suspense fallback={null}>
         <Outlet />
-      </main>
+      </Suspense>
     </nav>
   );
 };

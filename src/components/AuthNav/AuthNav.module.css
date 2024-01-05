@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #3498db, #8e44ad);
+    color: #fff;
+    width: 1600px;
+    margin: 0px;
+}
+
+.tabs-container {
+    display: flex;
+    margin-left: auto;
+    /* Перемещаем вправо */
+}
+
+.tabs {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease-in-out;
+}
+
+.tab {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.active {
+    background-color: #fff;
+    color: #333;
+}
+
+.container.login .tabs {
+    transform: translateY(0);
+}
+
+.container.register .tabs {
+    transform: translateY(0);
+}
+
+body {
+    scroll-behavior: smooth;
+}

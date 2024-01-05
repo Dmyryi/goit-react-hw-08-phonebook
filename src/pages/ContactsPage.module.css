@@ -1,0 +1,8 @@
+.pageContainer {
+    background: linear-gradient(to right, #3498db, #8e44ad);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}

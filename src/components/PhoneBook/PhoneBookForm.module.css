@@ -1,19 +1,146 @@
+.formPhone {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    transition: box-shadow 0.3s;
+}
+
+.formPhone:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 .label {
-    display: flex;
-    flex-direction: column;
-    max-width: 200px;
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
 }
 
-button {
-    margin: 5px 10px;
-    background-color: #0a0131ab;
+.input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input:focus {
+    border-color: #4caf50;
+}
+
+.button {
+    background-color: #3F72AF;
     color: white;
-    border-radius: 7px;
-    border-color: #0a0131ab;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-button:hover {
+.button:hover {
+    background-color: #356196;
+}
+
+/* PhoneBookForm.module.css */
+
+.listContainer {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.listItem {
+    border: 1px solid #eee;
+    background-color: #fff;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: box-shadow 0.3s;
+    width: 600px;
+}
+
+.listItem:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.deleteButton {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+    /* transition: background-color 0.3s, transform 0.9s; */
+}
+
+.deleteButton:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+    animation: fadeInUp 0.1s linear;
+}
+
+.top,
+.bottom {
+    height: 3px;
+    width: 20px;
     background-color: white;
-    color: #0a0131ab;
-    border-color: #0a0131ab;
+    margin-bottom: 4px;
+}
+
+
+
+@keyframes fadeInUp {
+    0% {
+        /* opacity: 0; */
+        transform: translateX(4px);
+        /* Adjust the initial translateY value */
+    }
+
+    100% {
+        /* opacity: 1; */
+        transform: translateX(0px);
+    }
+}
+
+
+.icon {
+    margin-right: 8px;
+    fill: #fff;
+}
+
+.deleteText {
+    display: none;
+    margin-left: 8px;
+
+}
+
+
+.deleteButton:hover .deleteText {
+    display: inline-block;
+    /* animation: fadeInUp 0.3s linear; */
+    opacity: 1;
+
 }

@@ -1,0 +1,12 @@
+/* BinIcon.module.css */
+.binIcon {
+    fill: #fff;
+    /* Яскравий червоний колір */
+    transition: fill 0.3s ease;
+    /* Плавна зміна кольору при hover */
+}
+
+.binIcon:hover {
+    fill: #fff;
+    /* Темніший червоний колір при hover */
+}

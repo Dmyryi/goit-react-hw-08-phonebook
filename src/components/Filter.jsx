@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from '../redux/selectors/selectors';
 import { updateFilter } from '../redux/myContacts/myContacts';
+import styles from './Filter.module.css';
 
 export default function Filter() {
   const dispatch = useDispatch();
@@ -10,12 +11,18 @@ export default function Filter() {
   const changeFilterHandler = event => {
     dispatch(updateFilter(event.currentTarget.value));
   };
+
   return (
-    <div>
-      <label>
-        Search
-        <input type="text" value={filter} onChange={changeFilterHandler} />
-      </label>
+    <div className={styles.container}>
+      <div className={styles.inputContainer}>
+        <label className={styles.label}>Search</label>
+        <input
+          className={styles.input}
+          type="text"
+          value={filter}
+          onChange={changeFilterHandler}
+        />
+      </div>
     </div>
   );
 }
