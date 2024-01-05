@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { refreshUser } from '../redux/auth/operations';
-import { Layout } from './Layout';
-import LoginPage from '../pages/LoginPage';
-import RegisterPage from '../pages/RegisterPage';
-import ContactsPage from 'pages/ContactsPage';
+import { Layout } from './Layout/Layout';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import RegisterPage from '../pages/RegisterPage/RegisterPage';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import { useDispatch } from 'react-redux';
 import { useAuth } from '../hooks/useAuth';
 import { RestrictedRoute } from './RestrictedRoute';

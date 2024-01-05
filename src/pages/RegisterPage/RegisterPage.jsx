@@ -11,7 +11,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
-import { logIn } from '../redux/auth/operations';
+import { register } from '../../redux/auth/operations';
+
 function Copyright(props) {
   return (
     <Typography
@@ -32,17 +33,19 @@ function Copyright(props) {
 
 const defaultTheme = createTheme();
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const dispatch = useDispatch();
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.currentTarget;
     dispatch(
-      logIn({
+      register({
+        name: form.elements.name.value,
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
     );
+
     form.reset();
   };
 
@@ -81,7 +84,7 @@ export default function LoginPage() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Login
+              Register
             </Typography>
             <Box
               component="form"
@@ -89,6 +92,16 @@ export default function LoginPage() {
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="name"
+                label="Name"
+                type="name"
+                id="name"
+                autoComplete="current-password"
+              />
               <TextField
                 margin="normal"
                 required
@@ -110,13 +123,14 @@ export default function LoginPage() {
                 id="password"
                 autoComplete="current-password"
               />
+
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Sign Up
               </Button>
 
               <Copyright sx={{ mt: 5 }} />
