@@ -1,7 +1,33 @@
-/* Navigation.module.css */
+.navigation_link {
+    text-decoration: none;
+    color: #3498db;
+    /* Колір тексту ссилки */
+    transition: color 0.3s ease-in-out;
+    /* Плавне змінення кольору при наведенні */
+}
 
-.navigation {
-    display: none;
-    /* gap: 20px;    */
-    /* Переместите вправо */
+/* Стилі при наведенні */
+.navigation_link:hover {
+    color: #1e577d;
+    /* color: #c0392b; */
+    /* Колір тексту при наведенні */
+    /* text-decoration: underline; */
+    /* Підкреслення при наведенні */
+}
+
+
+/* Опціонально: Стилі для активних ссилок (під час натискання) */
+.navigation_link:active {
+    color: #c0392b;
+    /* Колір під час натискання */
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-bottom: 16px; */
+    border-bottom: 1px solid #2a363b;
+
 }

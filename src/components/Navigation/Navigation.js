@@ -8,7 +8,9 @@ export const Navigation = () => {
       {isLoggedIn && (
         <nav className={styles.navigation}>
           {' '}
-          <NavLink to="/contacts">Contacts</NavLink>{' '}
+          <NavLink className={styles.navigation_link} to="/contacts">
+            Contacts
+          </NavLink>{' '}
         </nav>
       )}
     </>

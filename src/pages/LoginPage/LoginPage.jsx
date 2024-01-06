@@ -108,7 +108,9 @@ export default function LoginPage() {
                 label="Password"
                 type="password"
                 id="password"
+                inputProps={{ minLength: 7 }}
                 autoComplete="current-password"
+                helperText="Password must be at least 7 characters long"
               />
               <Button
                 type="submit"
