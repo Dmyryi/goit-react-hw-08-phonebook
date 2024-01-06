@@ -26,6 +26,11 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      const errorMessage =
+        error.response?.data?.message || 'An error occurred during login';
+
+      // Вивести повідомлення про помилку користувачеві
+      alert(errorMessage);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -44,7 +49,6 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      // console.log(error);
       const errorMessage =
         error.response?.data?.message || 'An error occurred during login';
 
